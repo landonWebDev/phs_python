@@ -4,8 +4,9 @@
 #   cd C:/lgutz/projects/development
 # Once in that directory, copy and paste the next line:
 # git clone https://github.com/landonWebDev/phs_python.git
-#
-#
+# This will copy all of your files from your repository down to your
+# computer.
+# Open an existing project in pycharm to the "phs_python"
 
 import random
 import time
