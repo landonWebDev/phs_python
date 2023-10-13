@@ -1,3 +1,12 @@
+# Switch to the directory where you want the project to live.
+# For instance, if it is in C:/lgutz/projects/development
+# Open a terminal and type in (no quotes):
+#   cd C:/lgutz/projects/development
+# Once in that directory, copy and paste the next line:
+# git clone https://github.com/landonWebDev/phs_python.git
+#
+#
+
 import random
 import time
 from room_definitions import room_list, current_room
