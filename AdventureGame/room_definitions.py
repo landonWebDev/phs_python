@@ -3,7 +3,7 @@ room_list = {
         "visited": False,
         "monster": {
             "type": "Dragon",
-            "hp": 50,
+            "hp": 150,
             "dmg_multiplier": 1.5,
         },
         "loot": [],
@@ -64,7 +64,7 @@ room_list = {
         "visited": False,
         "monster": {
             "type": "Skeleton",
-            "hp": 10,
+            "hp": 100,
             "dmg_multiplier": 1.0,
         },
         "exits": {
@@ -76,7 +76,7 @@ room_list = {
         "visited": False,
         "monster": {
             "type": "Zombie",
-            "hp": 10,
+            "hp": 100,
             "dmg_multiplier": 1.0,
         },
         "exits": {
@@ -89,53 +89,3 @@ room_list = {
 
 def set_room_visited(room):
     room_list[room]["visited"] = True
-
-
-def move_north(current):
-    if 'north' in room_list[current]["exits"]:
-        new_room = room_list[current]["exits"]["north"]
-        # print('CURRENT ROOM UPDATED TO: ', current)
-        return new_room
-    else:
-        return current
-
-
-def move_east(current):
-    if 'east' in room_list[current]["exits"]:
-        new_room = room_list[current]["exits"]["east"]
-        # print('CURRENT ROOM UPDATES TO: ', current)
-        return new_room
-    else:
-        return current
-
-
-def move_south(current):
-    if 'south' in room_list[current]["exits"]:
-        new_room = room_list[current]["exits"]["south"]
-        # print('CURRENT ROOM UPDATES TO: ', current)
-        return new_room
-    else:
-        return current
-
-
-def move_west(current):
-    if 'west' in room_list[current]["exits"]:
-        new_room = room_list[current]["exits"]["west"]
-        # print('CURRENT ROOM UPDATES TO: ', current)
-        return new_room
-    else:
-        return current
-
-
-# move_east()
-
-# Loop over these actions until either you reach the exit
-# Prompt to move character
-# Move character
-# If in exit, break from while loop and end game
-
-# if/else chain
-# (ignore for now) Handle loot (update multipliers or whatever for the loot you picked up)
-# Handle empty room (tell user it's empty and move to next... continue while loop)
-# Update global variables for monster (check monster type, update health/dmg, etc)
-#   If combat, run the combat while loop until combat ends

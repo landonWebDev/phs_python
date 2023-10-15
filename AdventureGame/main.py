@@ -1,21 +1,6 @@
-# Switch to the directory where you want the project to live.
-# For instance, if it is in C:/lgutz/projects/development
-# Open a terminal and type in (no quotes):
-#   cd C:/lgutz/projects/development
-# Once in that directory, copy and paste the next line:
-# git clone https://github.com/landonWebDev/phs_python.git
-# This will copy all of your files from your repository down to your
-# computer.
-# Open an existing project in pycharm to the "phs_python"
-
-import random
-import time
-from room_definitions import room_list, move_north, move_east, move_west, move_south, set_room_visited
-
-damage = 0
-critical = 0
-num = 0
-
+from room_definitions import room_list, set_room_visited
+from combat import combat_round
+from movement import move_player, move_north, move_east, move_west, move_south
 # Set health variables
 mh = 0
 hp = 120
@@ -25,85 +10,6 @@ attack = "attack"
 defend = "defend"
 heal = "heal"
 current_room = "SW"
-
-
-def movement():
-    doors = ', '.join(list(room_list[current_room]["exits"]))
-    # print('In Movement, current room is:', current_room)
-    move = input("You see doors to the " + doors + ". Which way do you want to go? ").strip().lower()
-    if move != "north" and move != "south" and move != "east" and move != "west":
-        movement()
-    return move
-
-
-# Create function to generate critical and number values
-def calc_attack_numbers():
-    global damage
-    global critical
-    global num
-
-    critical = random.randint(1, 7)
-    num = random.randint(1, 7)
-    if critical == num:
-        damage = random.randint(20, 40) * 2
-    else:
-        damage = random.randint(20, 40)
-
-
-# Create function to check if critical hit
-def is_critical():
-    return critical == num
-
-
-# Monster attack
-def monster_attack():
-    calc_attack_numbers()
-    global hp
-    monster_multiplier = room_list[current_room]["monster"]["dmg_multiplier"]
-    monster_damage = damage * monster_multiplier
-    print("The monster attacks you and deals " + str(monster_damage) + " damage to you!")
-    hp = hp - monster_damage
-
-
-def get_user_action():
-    return input("Do you want to attack, defend, or heal? ").strip().lower()
-
-
-def combat():
-    global mh
-    global hp
-    global attack
-    global defend
-    global heal
-
-    # Print out something about beginning combat and current health amounts
-
-    # First thing in combat is to update numbers for attack and critical
-    print("You are at " + str(hp) + " health and the monster has " + str(mh) + " health left!")
-    calc_attack_numbers()
-
-    # User input for action
-    action = get_user_action()
-    while action != attack and action != defend and action != heal:
-        print("Invalid action, try again.")
-        action = get_user_action()
-
-    # Conditionals for actions
-    # Attack
-    if action == attack:
-        if is_critical():
-            print("Critical Hit")
-        print("You attack the monster and deal " + str(damage) + " damage to the monster!")
-        mh = mh - damage
-    # Defend
-    elif action == "defend":
-        print("You defend yourself and take no damage this turn!")
-    # Heal
-    elif action == "heal":
-        print("You heal yourself and gain 50 hp!")
-        hp += 50
-    if action != defend and mh > 0:
-        monster_attack()
 
 
 # Resolve winner now that combat is over
@@ -122,7 +28,7 @@ print("You wake up in a mysterious room, you must find your way out, but be care
 
 while "exit" not in room_list[current_room]:
     original_current = current_room
-    direction = movement()
+    direction = move_player(current_room)
     if direction == "north":
         current_room = move_north(current_room)
     elif direction == "east":
@@ -146,7 +52,10 @@ while "exit" not in room_list[current_room]:
                     mh = 0
                 elif hp <= 0:
                     break
-                combat()
+                results = combat_round(mh, hp, attack, defend, heal, current_room)
+                hp = results["hp"]
+                mh = results["mh"]
+            #     update values from results of combat
             winner()
 
         if hp <= 0:
@@ -159,7 +68,6 @@ while "exit" not in room_list[current_room]:
         else:
             # If new room equals old room, you hit a wall
             print("You recognize this room and there is nothing new in here")
-
 
 
 # end game with winning or losing print
