@@ -1,38 +1,43 @@
 room_list = {
-    "NW": {
+    "(1,3)": {
         "visited": False,
         "monster": {
             "type": "Dragon",
             "hp": 150,
             "dmg_multiplier": 1.5,
         },
-        "loot": [],
+        "loot": {
+            "Widow Maker": {
+            "multiplier": 4,
+
+        },
+        },
         "exits": {
-            "south": "W",
-            "east": "N"
+            "south": "(1,2)",
+            "east": "(2,3)"
         }
     },
-    "N": {
+    "(2,3)": {
         "visited": False,
-        "loot": [],
+        "loot": [""],
         "exits": {
-            "east": "NE",
+            "east": "(3,3)",
             "south": "C",
-            "west": "NW",
+            "west": "(1,3)",
         }
     },
-    "NE": {
+    "(3,3)": {
         "visited": False,
         "loot": ["sword", "shield"],
         "exits": {
-            "west": "N",
+            "west": "(2,3)",
         }
     },
-    "W": {
+    "(1,2)": {
         "visited": False,
         "loot": [],
         "exits": {
-            "north": "NW",
+            "north": "(1,3)",
             "east": "C",
             "south": "SW",
         }
@@ -42,8 +47,8 @@ room_list = {
         "visited": False,
         "loot": [],
         "exits": {
-            "north": "N",
-            "west": "W",
+            "north": "(2,3)",
+            "west": "(1,2)",
             "south": "S",
         }
     },
@@ -57,7 +62,7 @@ room_list = {
     "SW": {
         "visited": True,
         "exits": {
-            "north": "W",
+            "north": "(1,2)",
         }
     },
     "S": {
