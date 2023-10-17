@@ -22,7 +22,7 @@ room_list = {
         "loot": [""],
         "exits": {
             "east": "(3,3)",
-            "south": "C",
+            "south": "(2,2)",
             "west": "(1,3)",
         }
     },
@@ -38,34 +38,34 @@ room_list = {
         "loot": [],
         "exits": {
             "north": "(1,3)",
-            "east": "C",
-            "south": "SW",
+            "east": "(2,2)",
+            "south": "(1,1)",
         }
 
     },
-    "C": {
+    "(2,2)": {
         "visited": False,
         "loot": [],
         "exits": {
             "north": "(2,3)",
             "west": "(1,2)",
-            "south": "S",
+            "south": "(2,1)",
         }
     },
-    "E": {
+    "(3,2)": {
         "visited": False,
         "exit": True,
         "exits": {
-            "south": "SE",
+            "south": "(3,1)",
         }
     },
-    "SW": {
+    "(1,1)": {
         "visited": True,
         "exits": {
             "north": "(1,2)",
         }
     },
-    "S": {
+    "(2,1)": {
         "visited": False,
         "monster": {
             "type": "Skeleton",
@@ -73,11 +73,11 @@ room_list = {
             "dmg_multiplier": 1.0,
         },
         "exits": {
-            "north": "C",
-            "east": "SE",
+            "north": "(2,2)",
+            "east": "(3,1)",
         }
     },
-    "SE": {
+    "(3,1)": {
         "visited": False,
         "monster": {
             "type": "Zombie",
@@ -85,8 +85,8 @@ room_list = {
             "dmg_multiplier": 1.0,
         },
         "exits": {
-            "north": "E",
-            "west": "S",
+            "north": "(3,2)",
+            "west": "(2,1)",
         }
     },
 }

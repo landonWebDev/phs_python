@@ -10,7 +10,7 @@ hp = 120
 attack = "attack"
 defend = "defend"
 heal = "heal"
-current_room = "SW"
+current_room = "(1,1)"
 
 
 # Resolve winner now that combat is over

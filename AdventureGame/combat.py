@@ -29,7 +29,7 @@ def is_critical():
     return critical == num
 
 
-# Monster attack
+# Mo♦nster attack
 def monster_attack(hp, current_room):
     calc_attack_numbers()
 
