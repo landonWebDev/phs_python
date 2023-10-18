@@ -5,7 +5,7 @@ damage = 0
 critical = 0
 num = 0
 
-
+dmg_multi = 1
 def get_user_action():
     return input("Do you want to attack, defend, or heal? ").strip().lower()
 
@@ -72,10 +72,10 @@ def combat_round(mh, hp, attack, defend, heal, current_room):
     return {"hp": hp, "mh": mh}
 
 
-def loot():
-    if ["loot"] in room_list[current_room]:
-        weapon = room_list[current_room]["loot"]["type"]
-        print("You found the " + weapon + "!")
-        multiplier = room_list[current_room]["loot"]["multiplier"]
+def loot(current_room):
+    global dmg_multi
+    weapon = room_list[current_room]["loot"]
+    print("You found the " + weapon["type"] + "!")
+    multiplier = room_list[current_room]["loot"]["multiplier"]
+    dmg_multi = dmg_multi + multiplier
 
-loot()

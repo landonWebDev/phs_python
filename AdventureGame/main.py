@@ -1,5 +1,5 @@
 from room_definitions import room_list, set_room_visited
-from combat import combat_round
+from combat import combat_round, loot
 from movement import move_player, move_north, move_east, move_west, move_south
 
 # Set health variables
@@ -30,6 +30,8 @@ print("You wake up in a mysterious room, you must find your way out, but be care
 while "exit" not in room_list[current_room]:
     original_current = current_room
     direction = move_player(current_room)
+    if current_room in room_list and "loot" in room_list[current_room]:
+        loot(current_room)
     if direction == "north":
         current_room = move_north(current_room)
     elif direction == "east":
