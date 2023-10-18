@@ -6,12 +6,10 @@ room_list = {
             "hp": 150,
             "dmg_multiplier": 1.5,
         },
-        "loot": {
-            "Widow Maker": {
+        "loot":{
+            "type":  "Widow Maker",
             "multiplier": 4,
-
-        },
-        },
+            },
         "exits": {
             "south": "(1,2)",
             "east": "(2,3)"

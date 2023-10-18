@@ -29,7 +29,7 @@ def is_critical():
     return critical == num
 
 
-# Mo♦nster attack
+# Monster attack
 def monster_attack(hp, current_room):
     calc_attack_numbers()
 
@@ -70,3 +70,12 @@ def combat_round(mh, hp, attack, defend, heal, current_room):
         hp = monster_attack(hp, current_room)
 
     return {"hp": hp, "mh": mh}
+
+
+def loot():
+    if ["loot"] in room_list[current_room]:
+        weapon = room_list[current_room]["loot"]["type"]
+        print("You found the " + weapon + "!")
+        multiplier = room_list[current_room]["loot"]["multiplier"]
+
+loot()
