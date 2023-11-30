@@ -6,6 +6,8 @@ critical = 0
 num = 0
 
 dmg_multi = 1
+
+
 def get_user_action():
     return input("Do you want to attack, defend, or heal? ").strip().lower()
 
@@ -76,6 +78,5 @@ def loot(current_room):
     global dmg_multi
     weapon = room_list[current_room]["loot"]
     print("You found the " + weapon["type"] + "!")
-    multiplier = room_list[current_room]["loot"]["multiplier"]
+    multiplier = weapon["multiplier"]
     dmg_multi = dmg_multi + multiplier
-
