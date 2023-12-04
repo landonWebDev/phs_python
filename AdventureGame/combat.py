@@ -21,9 +21,9 @@ def calc_attack_numbers():
     critical = random.randint(1, 7)
     num = random.randint(1, 7)
     if critical == num:
-        damage = random.randint(20, 40) * 2
+        damage = random.randint(20, 40) * 2 * dmg_multi
     else:
-        damage = random.randint(20, 40)
+        damage = random.randint(20, 40) * dmg_multi
 
 
 # Create function to check if critical hit
@@ -74,9 +74,14 @@ def combat_round(mh, hp, attack, defend, heal, current_room):
     return {"hp": hp, "mh": mh}
 
 
+#Landon did the loot Function
 def loot(current_room):
     global dmg_multi
     weapon = room_list[current_room]["loot"]
-    print("You found the " + weapon["type"] + "!")
-    multiplier = weapon["multiplier"]
-    dmg_multi = dmg_multi + multiplier
+    loot_decision = input("You see a shiny box in the room do you want to open it, you will never get a second chance.")
+    if loot_decision == "yes":
+        print("You found " + weapon["type"] + "!")
+        multiplier = weapon["multiplier"]
+        dmg_multi = dmg_multi + multiplier
+    elif loot_decision != "no":
+        loot(current_room)

@@ -30,8 +30,6 @@ print("You wake up in a mysterious room, you must find your way out, but be care
 while "exit" not in room_list[current_room]:
     original_current = current_room
     direction = move_player(current_room)
-    if current_room in room_list and "loot" in room_list[current_room]:
-        loot(current_room)
     if direction == "north":
         current_room = move_north(current_room)
     elif direction == "east":
@@ -40,6 +38,9 @@ while "exit" not in room_list[current_room]:
         current_room = move_south(current_room)
     elif direction == "west":
         current_room = move_west(current_room)
+    # Landon, made if statement to only give loot if it has not been taken before
+    if current_room in room_list and "loot" in room_list[current_room] and not room_list[current_room]["visited"]:
+        loot(current_room)
 
     # check if monster in room if so do combat
     if not room_list[current_room]["visited"]:
@@ -67,14 +68,13 @@ while "exit" not in room_list[current_room]:
             print("There is no monster in this room")
     else:
         if original_current == current_room:
+            # If new room equals old room, you hit a wall
             print("You hit a wall")
         else:
-            # If new room equals old room, you hit a wall
             print("You recognize this room and there is nothing new in here")
-
 
 # end game with winning or losing print
 if hp > 0:
-    print("Congratulations, you beat the game!")
+    print("Congratulations, you escaped the dungeon!")
 else:
     print("Try again")

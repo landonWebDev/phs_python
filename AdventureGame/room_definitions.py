@@ -1,15 +1,17 @@
+# Landon added loot to each of the rooms that needed loot
+# Tyler fixed the loot bug and changed how big the dmg multipliers are
 room_list = {
     "(1,3)": {
         "visited": False,
         "monster": {
             "type": "Dragon",
-            "hp": 150,
+            "hp": 300,
             "dmg_multiplier": 1.5,
         },
-        "loot":{
-            "type":  "Widow Maker",
-            "multiplier": 4,
-            },
+        "loot": {
+            "type": "Widow Maker",
+            "multiplier": 1,
+        },
         "exits": {
             "south": "(1,2)",
             "east": "(2,3)"
@@ -17,7 +19,6 @@ room_list = {
     },
     "(2,3)": {
         "visited": False,
-        "loot": [""],
         "exits": {
             "east": "(3,3)",
             "south": "(2,2)",
@@ -26,14 +27,16 @@ room_list = {
     },
     "(3,3)": {
         "visited": False,
-        "loot": ["sword", "shield"],
         "exits": {
             "west": "(2,3)",
         }
     },
     "(1,2)": {
         "visited": False,
-        "loot": [],
+        "loot": {
+            "type": "A Sharp Sword",
+            "multiplier": 4,
+        },
         "exits": {
             "north": "(1,3)",
             "east": "(2,2)",
@@ -43,7 +46,6 @@ room_list = {
     },
     "(2,2)": {
         "visited": False,
-        "loot": [],
         "exits": {
             "north": "(2,3)",
             "west": "(1,2)",
