@@ -94,3 +94,5 @@ room_list = {
 
 def set_room_visited(room):
     room_list[room]["visited"] = True
+
+f

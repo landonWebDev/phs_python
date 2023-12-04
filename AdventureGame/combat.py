@@ -85,3 +85,5 @@ def loot(current_room):
         dmg_multi = dmg_multi + multiplier
     elif loot_decision != "no":
         loot(current_room)
+
+f

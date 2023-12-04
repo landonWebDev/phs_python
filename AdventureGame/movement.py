@@ -44,3 +44,5 @@ def move_west(current):
         return new_room
     else:
         return current
+
+f
