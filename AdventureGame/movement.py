@@ -4,7 +4,7 @@ from room_definitions import room_list
 def move_player(current_room):
     doors = ', '.join(list(room_list[current_room]["exits"]))
     # print('In Movement, current room is:', current_room)
-    move = input("You see doors to the " + doors + ". Which way do you want to go? ").strip().lower()
+    move = input("You see doors to the " + doors + ". Which way do you want to go?\n").strip().lower()
     if move != "north" and move != "south" and move != "east" and move != "west":
         move_player(current_room)
     return move
@@ -44,5 +44,3 @@ def move_west(current):
         return new_room
     else:
         return current
-
-f

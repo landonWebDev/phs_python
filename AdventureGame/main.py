@@ -16,13 +16,13 @@ current_room = "(1,1)"
 # Resolve winner now that combat is over
 def winner():
     if mh <= 0:
-        print("You killed the monster, keep exploring to find the way out!")
+        print("You killed the monster, keep exploring to find the way out!\n")
     elif hp <= 0:
-        print("You died")
+        print("You died \n")
 
 
 print("You wake up in a mysterious room, you must find your way out, but be careful because there are monsters in "
-      "some of these rooms as well! I wish you the best of luck!")
+      "some of these rooms as well! I wish you the best of luck! \n")
 # while loop to check if you or monster are dead
 # Do combat if no winner yet
 
@@ -38,10 +38,6 @@ while "exit" not in room_list[current_room]:
         current_room = move_south(current_room)
     elif direction == "west":
         current_room = move_west(current_room)
-    # Landon, made if statement to only give loot if it has not been taken before
-    if current_room in room_list and "loot" in room_list[current_room] and not room_list[current_room]["visited"]:
-        loot(current_room)
-
     # check if monster in room if so do combat
     if not room_list[current_room]["visited"]:
         # handle conditional statements from new room
@@ -49,7 +45,8 @@ while "exit" not in room_list[current_room]:
 
         if current_room in room_list and "monster" in room_list[current_room]:
             monster = room_list[current_room]["monster"]
-            print("Alert! There is a " + monster["type"] + " in this room")
+            print("Alert! There is a " + monster["type"] + " in this room\n")
+            print('\n')
             mh = monster["hp"]
             while mh > 0:
                 if mh <= 0:
@@ -61,22 +58,22 @@ while "exit" not in room_list[current_room]:
                 mh = results["mh"]
             #     update values from results of combat
             winner()
-
         if hp <= 0:
             break
         else:
-            print("There is no monster in this room")
+            print("There is no monster in this room\n")
+            # Landon, made if statement to only give loot if it has not been taken before
+        if current_room in room_list and "loot" in room_list[current_room]:
+            loot(current_room)
     else:
         if original_current == current_room:
             # If new room equals old room, you hit a wall
-            print("You hit a wall")
+            print("You hit a wall\n")
         else:
-            print("You recognize this room and there is nothing new in here")
+            print("You recognize this room and there is nothing new in here\n")
 
 # end game with winning or losing print
 if hp > 0:
     print("Congratulations, you escaped the dungeon!")
 else:
     print("Try again")
-
-f
