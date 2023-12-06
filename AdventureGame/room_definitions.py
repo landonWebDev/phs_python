@@ -11,6 +11,7 @@ room_list = {
         "loot": {
             "type": "Widow Maker",
             "multiplier": 1.5,
+            "resistance": 0,
         },
         "exits": {
             "south": "(1,2)",
@@ -27,16 +28,17 @@ room_list = {
     },
     "(3,3)": {
         "visited": False,
+        "loot": {
+                "type": "A Sharp Sword",
+                "multiplier": 1,
+                "resistance": 0,
+        },
         "exits": {
             "west": "(2,3)",
         }
     },
     "(1,2)": {
         "visited": False,
-        "loot": {
-            "type": "A Sharp Sword",
-            "multiplier": 1,
-        },
         "exits": {
             "north": "(1,3)",
             "east": "(2,2)",
