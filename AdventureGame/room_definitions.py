@@ -29,13 +29,35 @@ room_list = {
     "(3,3)": {
         "visited": False,
         "loot": {
-                "type": "A Sharp Sword",
-                "multiplier": 1,
-                "resistance": 0,
+            "type": "A Sharp Sword",
+            "multiplier": 1,
+            "resistance": 0,
         },
         "exits": {
             "west": "(2,3)",
         }
+    },
+    "(4,3)": {
+        "visited": False,
+        "exits": {
+            "east": "(5,3)",
+            "south": "(4,2)",
+        },
+    },
+    "(5,3)": {
+        "visited": False,
+        "exit": True,
+        "exits": {
+            "east": "(6,3)",
+            "south": "(5,2)",
+            "west": "(4,3)",
+        },
+    },
+    "(6,3)": {
+        "visited": False,
+        "exits": {
+            "west": "(5,3)",
+        },
     },
     "(1,2)": {
         "visited": False,
@@ -56,10 +78,22 @@ room_list = {
     },
     "(3,2)": {
         "visited": False,
-        "exit": True,
         "exits": {
             "south": "(3,1)",
         }
+    },
+    "(4,2)": {
+      "visited": False,
+      "exits": {
+          "north": "(4,3)",
+          "east": "(5,2)",
+          "west": "(3,2)",
+
+      },
+    },
+    "(5,2)": {
+        "visited": False,
+        "exits": {},
     },
     "(1,1)": {
         "visited": True,
@@ -91,6 +125,18 @@ room_list = {
             "west": "(2,1)",
         }
     },
+    "(4,1)": {
+        "visited": False,
+        "loot": {
+            "type": "Strength Ring",
+            "multiplier": 1,
+            "resistance": 0,
+        },
+        "exits": {
+            "east": "(5,1)",
+        }
+    },
+
 }
 
 
