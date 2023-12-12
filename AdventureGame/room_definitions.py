@@ -1,5 +1,6 @@
 # Landon added loot to each of the rooms that needed loot
 # Tyler fixed the loot bug and added dmg multipliers
+# Samuel Added 4 more rooms to the game and made another piece of loot
 room_list = {
     "(1,3)": {
         "visited": False,
@@ -93,7 +94,19 @@ room_list = {
     },
     "(5,2)": {
         "visited": False,
-        "exits": {},
+        "exits": {
+            "north": "(5:3)",
+            "east": "(6,2)",
+            "south": "(5,1)",
+            "west": "(4,2)",
+        },
+    },
+    "(6,2)": {
+        "visited": False,
+        "exits": {
+            "south": "(6,1)",
+            "west": "(5,2)",
+        }
     },
     "(1,1)": {
         "visited": True,
@@ -135,6 +148,22 @@ room_list = {
         "exits": {
             "east": "(5,1)",
         }
+    },
+    "(5,1)": {
+        "visited": False,
+        "exits": {
+            "north": "(5,2)",
+            "west": "(4,1)",
+            "east": "(6,1)",
+        }
+
+    },
+    "(6,1)": {
+        "visited": False,
+        "exits": {
+            "north": "(6,2)",
+            "west": "(5,1)",
+        },
     },
 
 }
