@@ -81,6 +81,7 @@ room_list = {
         "visited": False,
         "exits": {
             "south": "(3,1)",
+            "east": "(4,2)",
         }
     },
     "(4,2)": {
@@ -95,7 +96,7 @@ room_list = {
     "(5,2)": {
         "visited": False,
         "exits": {
-            "north": "(5:3)",
+            "north": "(5,3)",
             "east": "(6,2)",
             "south": "(5,1)",
             "west": "(4,2)",
