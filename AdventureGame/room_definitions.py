@@ -40,6 +40,15 @@ room_list = {
     },
     "(4,3)": {
         "visited": False,
+        "monster": {
+                "type": "Golem",
+                "hp": 600,
+                "dmg_multiplier": 2,
+                },
+        "loot": {
+            "type": "Golem Fist",
+            "multiplier": 1,
+        },
         "exits": {
             "east": "(5,3)",
             "south": "(4,2)",
